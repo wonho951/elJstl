@@ -15,7 +15,7 @@ public class Servlet02 extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setAttribute("reqVal", "abcdefgh");
+		request.setAttribute("reqVal", "안녕하세요");
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/02.jsp");
 		rd.forward(request, response);
 	}
