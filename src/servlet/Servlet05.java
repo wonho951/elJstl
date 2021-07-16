@@ -22,7 +22,7 @@ public class Servlet05 extends HttpServlet {
 		
 		UserVo userVo = new UserVo(1, "박명수", "park", "1234", "male");
 		
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession();
 		session.setAttribute("authUser", userVo);
 		
 		
