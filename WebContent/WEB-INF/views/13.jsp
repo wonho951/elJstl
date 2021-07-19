@@ -32,7 +32,7 @@
 		</thead>
 		
 		<tbody>
-<%-- 			<%for (int i = 0; i < userList.size(); i++) { %> --%>
+<%-- 			<%for (int i = 0; i < userList.size(); i++) { %> 구간을 정할수 있는 장점이 있음--%>
 <!-- 				<tr> -->
 <%-- 					<td><%=i %></td> --%>
 <%-- 					<td><%=userList.get(i).getName() %></td> --%>
@@ -65,17 +65,22 @@
 				<th>email</th>
 				<th>password</th>
 				<th>gender</th>
+				<th>index</th>
+				<th>count</th>
 			</tr>
 		</thead>
 		
 		<tbody>
-			<c:forEach items = "${userList }" var = "uesrVo">	<!-- items는 전체의 이름. 하나씩 꺼내야 하기 때문에 var로 이름을 정해줌 -->
+			<c:forEach items = "${userList }" var = "uesrVo" varStatus = "status" begin = "5" end = "15" step = "3">	<!-- items는 전체의 이름. 하나씩 꺼내야 하기 때문에 var로 이름을 정해줌. varStatus는 일련번호같은게 필요할때 사용. int i = 0 역할?-->
+																					<!-- begin은 시작구간 end는 끝나는 구간을 정할 수 있다. step는 i+x 처럼 몇단계 건너 뛸건지 이런 느낌 -->
 				<tr>
 					<td>${uesrVo.no }</td>
 					<td>${uesrVo.name }</td>
 					<td>${uesrVo.email }</td>
 					<td>${uesrVo.password }</td>
 					<td>${uesrVo.gender }</td>
+					<td>${status.index }</td>	<!-- index는 0부터 시작 -> i값이라고 생각 -->
+					<td>${status.count }</td>	<!-- count는 1부터 시작 ->갯수라고 생각 -->
 				</tr>
 			</c:forEach>
 		</tbody>
